@@ -37,10 +37,10 @@ public static class Patches
 
         d.tickTime = 0.028571f;
         d.wadPath = "./BepInEx/plugins/doom/DOOM.WAD";
-        if (System.IO.File.Exists(d.pwadPath))
-            d.pwadPath = "./BepInEx/plugins/doom/ultradoom.wad";
-        else
-            d.pwadPath = "";
+
+        string pwad = "./BepInEx/plugins/doom/ultradoom.wad";
+        d.pwadPath = System.IO.File.Exists(pwad) ? pwad : "";
+
         d.sfPath = "./BepInEx/plugins/doom/RLNDGM.SF2";
 
         d.SetUp();
